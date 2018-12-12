@@ -92,6 +92,15 @@
       ],
       "HoldFd": true
     },
+	{
+		"Name": "SchedFeatures",
+		"Path": "/proc/sys/kernel/sched_energy_aware",
+		"Values": [
+			"0",
+			"1"
+		],
+		"ResetOnInit": true
+	},
     {
       "Name": "UfsClkGateEnable",
       "Path": "/sys/devices/soc/1da4000.ufshc/clkgate_enable",
@@ -148,6 +157,12 @@
       "Duration": 200,
       "Value": "0"
     },
+	{
+		"PowerHint": "LAUNCH",
+		"Node": "SchedFeatures",
+		"Duration": 5000,
+		"Value": "0"
+	},
     {
       "PowerHint": "LAUNCH",
       "Node": "GPUForceClkOn",
