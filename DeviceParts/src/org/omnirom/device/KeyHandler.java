@@ -68,12 +68,12 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.widget.Toast;
-import com.android.internal.os.DeviceKeyHandler;
+import com.android.internal.os.AlternativeDeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
-import com.android.internal.util.aosip.aosipUtils;
+import com.android.internal.util.derp.derpUtils;
 import com.android.internal.statusbar.IStatusBarService;
 
-public class KeyHandler implements DeviceKeyHandler {
+public class KeyHandler implements AlternativeDeviceKeyHandler {
 
     private static final String TAG = "KeyHandler";
     private static final boolean DEBUG = false;
@@ -600,21 +600,6 @@ public class KeyHandler implements DeviceKeyHandler {
             return true;
         } else if (value.equals(AppSelectListPreference.VOLUME_DOWN_ENTRY)) {
             mAudioManager.adjustSuggestedStreamVolume(AudioManager.ADJUST_LOWER,AudioManager.USE_DEFAULT_STREAM_TYPE,AudioManager.FLAG_SHOW_UI);
-            return true;
-        } else if (value.equals(AppSelectListPreference.BROWSE_SCROLL_DOWN_ENTRY)) {
-            aosipUtils.sendKeycode(KeyEvent.KEYCODE_PAGE_DOWN);
-            return true;
-        } else if (value.equals(AppSelectListPreference.BROWSE_SCROLL_UP_ENTRY)) {
-            aosipUtils.sendKeycode(KeyEvent.KEYCODE_PAGE_UP);
-            return true;
-        } else if (value.equals(AppSelectListPreference.NAVIGATE_BACK_ENTRY)) {
-            aosipUtils.sendKeycode(KeyEvent.KEYCODE_BACK);
-            return true;
-        } else if (value.equals(AppSelectListPreference.NAVIGATE_HOME_ENTRY)) {
-            aosipUtils.sendKeycode(KeyEvent.KEYCODE_HOME);
-            return true;
-        } else if (value.equals(AppSelectListPreference.NAVIGATE_RECENT_ENTRY)) {
-            aosipUtils.sendKeycode(KeyEvent.KEYCODE_APP_SWITCH);
             return true;
         }
         return false;
